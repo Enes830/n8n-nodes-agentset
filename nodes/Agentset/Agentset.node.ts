@@ -36,24 +36,24 @@ export class Agentset implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Namespace',
-						value: 'namespace',
-					},
-					{
-						name: 'Search',
-						value: 'search',
-					},
-					{
 						name: 'Document',
 						value: 'document',
+					},
+					{
+						name: 'Hosting',
+						value: 'hosting',
 					},
 					{
 						name: 'Ingest Job',
 						value: 'ingestJob',
 					},
 					{
-						name: 'Hosting',
-						value: 'hosting',
+						name: 'Namespace',
+						value: 'namespace',
+					},
+					{
+						name: 'Search',
+						value: 'search',
 					},
 				],
 				default: 'namespace',

@@ -9,37 +9,51 @@ This is an n8n community node. It lets you use [Agentset](https://agentset.ai) i
 ![Agentset Node](images/agentset-node.png)
 <!-- 📸 Screenshot: Show the Agentset node icon/appearance in the n8n canvas -->
 
+### Basic Setup
+
+1. Add the **Agentset** node to your workflow
+2. Select your Agentset credentials
+3. Choose a **Resource** (Namespace, Ingest Job, Document, Hosting, or Search)
+4. Select the **Operation** you want to perform
+5. Fill in the required parameters
+
+
+### Example Workflows
+
+#### 1. Data Ingestion Workflow
+
+Ingest your documents with just **two nodes** — that's the power of Agentset. Simply connect a trigger to the Agentset node and start building your knowledge base.
+
+```
+[On Form Submission] → [Agentset: Create Ingest Job]
+```
+
+1. Add an **On Form Submission** trigger (or any trigger of your choice)
+2. Add the **Agentset** node, select **Ingest Job** → **Create**
+3. Provide your namespace ID and document source (URL, file, or raw text)
+4. Execute — your documents are now being processed and indexed!
+
+![Data Ingestion Workflow](images/workflow-data-ingestion.png)
+<!-- 📸 Screenshot: Show the two-node workflow: Manual Trigger → Agentset Create Ingest Job -->
+
+#### 2. RAG Chatbot Workflow
+
+Build a conversational AI chatbot powered by your knowledge base using the Agentset Search as a tool for the AI Agent.
+
+```
+[Chat Trigger] → [AI Agent] → [Agentset: Search (as Tool)]
+```
+
+1. Add a **Chat Trigger** to receive user messages
+2. Add an **AI Agent** node with your preferred LLM
+3. Connect the **Agentset** node as a tool (select **Search** resource)
+4. The AI Agent will automatically query your knowledge base to provide accurate, context-aware responses
+
+![RAG Chatbot Workflow](images/workflow-rag-chatbot.png)
+<!-- 📸 Screenshot: Show the RAG chatbot workflow with Chat Trigger → AI Agent → Agentset Search tool -->
+
 ---
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Operations](#operations)
-- [Credentials](#credentials)
-- [Compatibility](#compatibility)
-- [Usage](#usage)
-  - [Example Workflows](#example-workflows)
-- [Screenshots](#screenshots)
-- [Resources](#resources)
-- [Version History](#version-history)
-
----
-
-## Installation
-
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
-
-### Quick Install
-
-1. Go to **Settings** > **Community Nodes**
-2. Select **Install**
-3. Enter `n8n-nodes-agentset` in the **npm Package Name** field
-4. Agree to the risks and select **Install**
-
-![Installation](images/installation.png)
-<!-- 📸 Screenshot: Show the community nodes installation screen with the package name entered -->
-
----
 
 ## Operations
 
@@ -57,9 +71,6 @@ Namespaces are containers for your documents and knowledge base.
 | **Get Many** | Get many namespaces |
 | **Update** | Update a namespace |
 
-![Namespace Operations](images/namespace-operations.png)
-<!-- 📸 Screenshot: Show the Namespace resource selected with the operation dropdown open -->
-
 ### Ingest Job
 
 Ingest jobs handle the processing and ingestion of documents into your namespace.
@@ -72,9 +83,6 @@ Ingest jobs handle the processing and ingestion of documents into your namespace
 | **Get Many** | Get many ingest jobs |
 | **Re-Ingest** | Re-ingest a job |
 
-![Ingest Job Operations](images/ingest-job-operations.png)
-<!-- 📸 Screenshot: Show the Ingest Job resource selected with the operation dropdown open -->
-
 ### Document
 
 Documents are the individual pieces of content stored in your namespace.
@@ -84,9 +92,6 @@ Documents are the individual pieces of content stored in your namespace.
 | **Delete** | Delete a document |
 | **Get** | Get a document by ID |
 | **Get Many** | Get many documents |
-
-![Document Operations](images/document-operations.png)
-<!-- 📸 Screenshot: Show the Document resource selected with the operation dropdown open -->
 
 ### Hosting
 
@@ -99,8 +104,13 @@ Hosting allows you to enable and configure a hosted chat interface for your name
 | **Get** | Get hosting settings for a namespace |
 | **Update** | Update hosting settings for a namespace |
 
-![Hosting Operations](images/hosting-operations.png)
-<!-- 📸 Screenshot: Show the Hosting resource selected with the operation dropdown open -->
+### Search
+
+Search allows you to query your namespace's knowledge base to find relevant documents and information.
+
+| Operation | Description |
+|-----------|-------------|
+| **Search** | Search a namespace for a query |
 
 ---
 
@@ -120,79 +130,6 @@ To use the Agentset node, you need to authenticate with your Agentset API key.
 3. Enter your API key
 4. Click **Save**
 
-![Credentials Setup](images/credentials-setup.png)
-<!-- 📸 Screenshot: Show the Agentset API credentials form with the API key field -->
-
----
-
-## Compatibility
-
-- **Minimum n8n version:** 1.0.0
-- **Tested with:** n8n 1.x
-
----
-
-## Usage
-
-### Basic Setup
-
-1. Add the **Agentset** node to your workflow
-2. Select your Agentset credentials
-3. Choose a **Resource** (Namespace, Ingest Job, Document, or Hosting)
-4. Select the **Operation** you want to perform
-5. Fill in the required parameters
-
-![Node Parameters](images/node-parameters.png)
-<!-- 📸 Screenshot: Show a fully configured Agentset node with parameters filled in -->
-
-### Example Workflows
-
-#### Example 1: Create a Namespace and Ingest Documents
-
-This workflow creates a new namespace and sets up an ingest job to process documents.
-
-![Workflow Example 1](images/workflow-example-1.png)
-<!-- 📸 Screenshot: Show a complete workflow with multiple Agentset nodes (e.g., Create Namespace -> Create Ingest Job) -->
-
-#### Example 2: Document Management Workflow
-
-This workflow retrieves documents from a namespace, processes them, and manages the document lifecycle.
-
-![Workflow Example 2](images/workflow-example-2.png)
-<!-- 📸 Screenshot: Show a workflow demonstrating document retrieval and management -->
-
-#### Example 3: Using with AI Agent
-
-The Agentset node can be used as a tool for AI agents, enabling your agents to interact with your RAG knowledge base.
-
-![AI Agent Integration](images/ai-agent-integration.png)
-<!-- 📸 Screenshot: Show the Agentset node connected to an AI Agent node -->
-
----
-
-## Screenshots
-
-### Node Overview
-
-The Agentset node in the n8n editor:
-
-![Node in Editor](images/node-in-editor.png)
-<!-- 📸 Screenshot: Show the Agentset node selected in the n8n editor with the panel open -->
-
-### Resource Selection
-
-Choose from available resources:
-
-![Resource Selection](images/resource-selection.png)
-<!-- 📸 Screenshot: Show the Resource dropdown with all options visible -->
-
-### Operation Output
-
-Example output from a successful operation:
-
-![Operation Output](images/operation-output.png)
-<!-- 📸 Screenshot: Show the output panel after running a successful operation -->
-
 ---
 
 ## Resources
@@ -202,37 +139,3 @@ Example output from a successful operation:
 - [Agentset Documentation](https://docs.agentset.ai)
 - [Agentset API Reference](https://api.agentset.ai/docs)
 - [GitHub Repository](https://github.com/Enes830/n8n-nodes-agentset)
-
----
-
-## Version History
-
-### 0.1.0
-
-- Initial release
-- Added Namespace resource (Create, Delete, Get, Get Many, Update)
-- Added Ingest Job resource (Create, Delete, Get, Get Many, Re-Ingest)
-- Added Document resource (Delete, Get, Get Many)
-- Added Hosting resource (Disable, Enable, Get, Update)
-
----
-
-## License
-
-[MIT](LICENSE)
-
----
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## Support
-
-If you have any questions or issues, please:
-
-1. Check the [Agentset Documentation](https://docs.agentset.ai)
-2. Open an issue on [GitHub](https://github.com/Enes830/n8n-nodes-agentset/issues)
-3. Join the [n8n Community](https://community.n8n.io/)

@@ -11,13 +11,12 @@ export class AgentsetApi implements ICredentialType {
 	displayName = 'Agentset API';
 	icon = { light: 'file:agentset.svg', dark: 'file:agentset.dark.svg' } as const;
 
-	// Link to your community node's README
-	documentationUrl = 'https://github.com/org/-agentset?tab=readme-ov-file#credentials';
+	documentationUrl = 'https://docs.agentset.ai/api-reference/tokens';
 
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Access Token',
-			name: 'accessToken',
+			displayName: 'Api Key',
+			name: 'apikey',
 			type: 'string',
 			typeOptions: { password: true },
 			required: true,
@@ -29,7 +28,7 @@ export class AgentsetApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '=Bearer {{$credentials.accessToken}}',
+				Authorization: '=Bearer {{$credentials.apikey}}',
 			},
 		},
 	};

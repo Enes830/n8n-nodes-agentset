@@ -6,11 +6,11 @@ class AgentsetApi {
         this.name = 'agentsetApi';
         this.displayName = 'Agentset API';
         this.icon = { light: 'file:agentset.svg', dark: 'file:agentset.dark.svg' };
-        this.documentationUrl = 'https://github.com/org/-agentset?tab=readme-ov-file#credentials';
+        this.documentationUrl = 'https://docs.agentset.ai/api-reference/tokens';
         this.properties = [
             {
-                displayName: 'Access Token',
-                name: 'accessToken',
+                displayName: 'Api Key',
+                name: 'apikey',
                 type: 'string',
                 typeOptions: { password: true },
                 required: true,
@@ -21,7 +21,7 @@ class AgentsetApi {
             type: 'generic',
             properties: {
                 headers: {
-                    Authorization: '=Bearer {{$credentials.accessToken}}',
+                    Authorization: '=Bearer {{$credentials.apikey}}',
                 },
             },
         };
