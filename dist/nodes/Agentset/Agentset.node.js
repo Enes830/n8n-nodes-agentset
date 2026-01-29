@@ -2,8 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Agentset = void 0;
 const n8n_workflow_1 = require("n8n-workflow");
-const user_1 = require("./resources/user");
-const company_1 = require("./resources/company");
+const namespace_1 = require("./resources/namespace");
+const ingestJob_1 = require("./resources/ingestJob");
+const document_1 = require("./resources/document");
+const hosting_1 = require("./resources/hosting");
 class Agentset {
     constructor() {
         this.description = {
@@ -36,18 +38,28 @@ class Agentset {
                     noDataExpression: true,
                     options: [
                         {
-                            name: 'User',
-                            value: 'user',
+                            name: 'Document',
+                            value: 'document',
                         },
                         {
-                            name: 'Company',
-                            value: 'company',
+                            name: 'Hosting',
+                            value: 'hosting',
+                        },
+                        {
+                            name: 'Ingest Job',
+                            value: 'ingestJob',
+                        },
+                        {
+                            name: 'Namespace',
+                            value: 'namespace',
                         },
                     ],
-                    default: 'user',
+                    default: 'namespace',
                 },
-                ...user_1.userDescription,
-                ...company_1.companyDescription,
+                ...namespace_1.namespaceDescription,
+                ...ingestJob_1.ingestJobDescription,
+                ...document_1.documentDescription,
+                ...hosting_1.hostingDescription,
             ],
         };
     }

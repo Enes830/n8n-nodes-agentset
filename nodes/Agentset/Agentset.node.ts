@@ -1,6 +1,8 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
-import { userDescription } from './resources/user';
-import { companyDescription } from './resources/company';
+import { namespaceDescription } from './resources/namespace';
+import { ingestJobDescription } from './resources/ingestJob';
+import { documentDescription } from './resources/document';
+import { hostingDescription } from './resources/hosting';
 
 export class Agentset implements INodeType {
 	description: INodeTypeDescription = {
@@ -33,18 +35,28 @@ export class Agentset implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'User',
-						value: 'user',
+						name: 'Document',
+						value: 'document',
 					},
 					{
-						name: 'Company',
-						value: 'company',
+						name: 'Hosting',
+						value: 'hosting',
+					},
+					{
+						name: 'Ingest Job',
+						value: 'ingestJob',
+					},
+					{
+						name: 'Namespace',
+						value: 'namespace',
 					},
 				],
-				default: 'user',
+				default: 'namespace',
 			},
-			...userDescription,
-			...companyDescription,
+			...namespaceDescription,
+			...ingestJobDescription,
+			...documentDescription,
+			...hostingDescription,
 		],
 	};
 }
