@@ -3,6 +3,7 @@ import { namespaceDescription } from './resources/namespace';
 import { ingestJobDescription } from './resources/ingestJob';
 import { documentDescription } from './resources/document';
 import { hostingDescription } from './resources/hosting';
+import { searchResourceDescription } from './resources/search';
 
 export class Agentset implements INodeType {
 	description: INodeTypeDescription = {
@@ -35,20 +36,24 @@ export class Agentset implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Document',
-						value: 'document',
+						name: 'Namespace',
+						value: 'namespace',
 					},
 					{
-						name: 'Hosting',
-						value: 'hosting',
+						name: 'Search',
+						value: 'search',
+					},
+					{
+						name: 'Document',
+						value: 'document',
 					},
 					{
 						name: 'Ingest Job',
 						value: 'ingestJob',
 					},
 					{
-						name: 'Namespace',
-						value: 'namespace',
+						name: 'Hosting',
+						value: 'hosting',
 					},
 				],
 				default: 'namespace',
@@ -57,6 +62,7 @@ export class Agentset implements INodeType {
 			...ingestJobDescription,
 			...documentDescription,
 			...hostingDescription,
+			...searchResourceDescription,
 		],
 	};
 }

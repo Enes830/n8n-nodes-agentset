@@ -5,6 +5,7 @@ class AgentsetApi {
     constructor() {
         this.name = 'agentsetApi';
         this.displayName = 'Agentset API';
+        this.icon = { light: 'file:agentset.svg', dark: 'file:agentset.dark.svg' };
         this.documentationUrl = 'https://github.com/org/-agentset?tab=readme-ov-file#credentials';
         this.properties = [
             {

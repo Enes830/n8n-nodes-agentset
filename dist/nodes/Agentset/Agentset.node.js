@@ -6,6 +6,7 @@ const namespace_1 = require("./resources/namespace");
 const ingestJob_1 = require("./resources/ingestJob");
 const document_1 = require("./resources/document");
 const hosting_1 = require("./resources/hosting");
+const search_1 = require("./resources/search");
 class Agentset {
     constructor() {
         this.description = {
@@ -38,20 +39,24 @@ class Agentset {
                     noDataExpression: true,
                     options: [
                         {
-                            name: 'Document',
-                            value: 'document',
+                            name: 'Namespace',
+                            value: 'namespace',
                         },
                         {
-                            name: 'Hosting',
-                            value: 'hosting',
+                            name: 'Search',
+                            value: 'search',
+                        },
+                        {
+                            name: 'Document',
+                            value: 'document',
                         },
                         {
                             name: 'Ingest Job',
                             value: 'ingestJob',
                         },
                         {
-                            name: 'Namespace',
-                            value: 'namespace',
+                            name: 'Hosting',
+                            value: 'hosting',
                         },
                     ],
                     default: 'namespace',
@@ -60,6 +65,7 @@ class Agentset {
                 ...ingestJob_1.ingestJobDescription,
                 ...document_1.documentDescription,
                 ...hosting_1.hostingDescription,
+                ...search_1.searchResourceDescription,
             ],
         };
     }

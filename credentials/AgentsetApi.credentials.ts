@@ -9,6 +9,7 @@ export class AgentsetApi implements ICredentialType {
 	name = 'agentsetApi';
 
 	displayName = 'Agentset API';
+	icon = { light: 'file:agentset.svg', dark: 'file:agentset.dark.svg' } as const;
 
 	// Link to your community node's README
 	documentationUrl = 'https://github.com/org/-agentset?tab=readme-ov-file#credentials';
