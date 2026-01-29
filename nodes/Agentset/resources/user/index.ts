@@ -1,6 +1,7 @@
 import type { INodeProperties } from 'n8n-workflow';
 import { userCreateDescription } from './create';
 import { userGetDescription } from './get';
+import { userSearchDescription } from './search';
 
 const showOnlyForUsers = {
 	resource: ['user'],
@@ -52,9 +53,21 @@ export const userDescription: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Search',
+				value: 'search',
+				action: 'Search namespace',
+				description: 'Search in a namespace',
+				routing: {
+					request: {
+						method: 'POST',
+					},
+				},
+			},
 		],
 		default: 'getAll',
 	},
 	...userGetDescription,
 	...userCreateDescription,
+	...userSearchDescription,
 ];

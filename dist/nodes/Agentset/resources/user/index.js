@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userDescription = void 0;
 const create_1 = require("./create");
 const get_1 = require("./get");
+const search_1 = require("./search");
 const showOnlyForUsers = {
     resource: ['user'],
 };
@@ -52,10 +53,22 @@ exports.userDescription = [
                     },
                 },
             },
+            {
+                name: 'Search',
+                value: 'search',
+                action: 'Search namespace',
+                description: 'Search in a namespace',
+                routing: {
+                    request: {
+                        method: 'POST',
+                    },
+                },
+            },
         ],
         default: 'getAll',
     },
     ...get_1.userGetDescription,
     ...create_1.userCreateDescription,
+    ...search_1.userSearchDescription,
 ];
 //# sourceMappingURL=index.js.map
