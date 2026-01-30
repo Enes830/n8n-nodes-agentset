@@ -6,7 +6,7 @@ This is an n8n community node. It lets you use [Agentset](https://agentset.ai) i
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
-![Agentset Node](images/agentset-node.png)
+![Data Ingestion Workflow](images/workflow-data-ingestion.png)
 
 ### Basic Setup
 
@@ -32,7 +32,6 @@ Ingest your documents with just two nodes. Simply connect a trigger to the Agent
 3. Provide your namespace ID and document source (URL, file, or raw text)
 4. Execute — your documents are now being processed and indexed!
 
-![Data Ingestion Workflow](images/workflow-data-ingestion.png)
 
 #### 2. RAG Chatbot Workflow
 
