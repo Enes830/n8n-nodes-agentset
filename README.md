@@ -7,7 +7,6 @@ This is an n8n community node. It lets you use [Agentset](https://agentset.ai) i
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
 ![Agentset Node](images/agentset-node.png)
-<!-- 📸 Screenshot: Show the Agentset node icon/appearance in the n8n canvas -->
 
 ### Basic Setup
 
@@ -22,7 +21,7 @@ This is an n8n community node. It lets you use [Agentset](https://agentset.ai) i
 
 #### 1. Data Ingestion Workflow
 
-Ingest your documents with just **two nodes** — that's the power of Agentset. Simply connect a trigger to the Agentset node and start building your knowledge base.
+Ingest your documents with just two nodes. Simply connect a trigger to the Agentset node and start building your knowledge base.
 
 ```
 [On Form Submission] → [Agentset: Create Ingest Job]
@@ -34,7 +33,6 @@ Ingest your documents with just **two nodes** — that's the power of Agentset. 
 4. Execute — your documents are now being processed and indexed!
 
 ![Data Ingestion Workflow](images/workflow-data-ingestion.png)
-<!-- 📸 Screenshot: Show the two-node workflow: Manual Trigger → Agentset Create Ingest Job -->
 
 #### 2. RAG Chatbot Workflow
 
@@ -47,10 +45,8 @@ Build a conversational AI chatbot powered by your knowledge base using the Agent
 1. Add a **Chat Trigger** to receive user messages
 2. Add an **AI Agent** node with your preferred LLM
 3. Connect the **Agentset** node as a tool (select **Search** resource)
-4. The AI Agent will automatically query your knowledge base to provide accurate, context-aware responses
 
 ![RAG Chatbot Workflow](images/workflow-rag-chatbot.png)
-<!-- 📸 Screenshot: Show the RAG chatbot workflow with Chat Trigger → AI Agent → Agentset Search tool -->
 
 ---
 
