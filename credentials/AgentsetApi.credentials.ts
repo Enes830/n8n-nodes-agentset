@@ -36,7 +36,8 @@ export class AgentsetApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: 'https://api.agentset.ai/v1',
-			url: '/v1/user',
+			url: '/namespace',
+			method: 'GET',
 		},
 	};
 }
