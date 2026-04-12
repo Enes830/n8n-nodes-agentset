@@ -15,7 +15,7 @@ export class AgentsetApi implements ICredentialType {
 
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Api Key',
+			displayName: 'API Key',
 			name: 'apikey',
 			type: 'string',
 			typeOptions: { password: true },

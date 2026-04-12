@@ -17,19 +17,6 @@ export const getAllDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Return All',
-		name: 'returnAll',
-		type: 'boolean',
-		default: false,
-		description: 'Whether to return all results or only up to a given limit',
-		displayOptions: {
-			show: {
-				resource: ['document'],
-				operation: ['getAll'],
-			},
-		},
-	},
-	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
@@ -43,7 +30,6 @@ export const getAllDescription: INodeProperties[] = [
 			show: {
 				resource: ['document'],
 				operation: ['getAll'],
-				returnAll: [false],
 			},
 		},
 		routing: {
@@ -100,9 +86,7 @@ export const getAllDescription: INodeProperties[] = [
 				name: 'orderBy',
 				type: 'options',
 				default: 'createdAt',
-				options: [
-					{ name: 'Created At', value: 'createdAt' },
-				],
+				options: [{ name: 'Created At', value: 'createdAt' }],
 				routing: {
 					send: {
 						type: 'query',

@@ -2,19 +2,6 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const getAllDescription: INodeProperties[] = [
 	{
-		displayName: 'Return All',
-		name: 'returnAll',
-		type: 'boolean',
-		default: false,
-		description: 'Whether to return all results or only up to a given limit',
-		displayOptions: {
-			show: {
-				resource: ['namespace'],
-				operation: ['getAll'],
-			},
-		},
-	},
-	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
@@ -28,7 +15,6 @@ export const getAllDescription: INodeProperties[] = [
 			show: {
 				resource: ['namespace'],
 				operation: ['getAll'],
-				returnAll: [false],
 			},
 		},
 		routing: {
@@ -72,9 +58,7 @@ export const getAllDescription: INodeProperties[] = [
 				name: 'orderBy',
 				type: 'options',
 				default: 'createdAt',
-				options: [
-					{ name: 'Created At', value: 'createdAt' },
-				],
+				options: [{ name: 'Created At', value: 'createdAt' }],
 				routing: {
 					send: {
 						type: 'query',
