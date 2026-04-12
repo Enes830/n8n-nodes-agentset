@@ -34,4 +34,7 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm with provenance
-        run: npm publish --provenance --no-scripts
+        run: |
+          # Temporarily rename the prepublishOnly hook to prevent it from running
+          node -e "const pkg = require('./package.json'); delete pkg.scripts.prepublishOnly; require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, '\t') + '\n')"
+          npm publish --provenance
