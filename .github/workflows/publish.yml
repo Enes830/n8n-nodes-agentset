@@ -3,7 +3,6 @@ name: Publish
 on:
   release:
     types: [published]
-  workflow_dispatch:
 
 jobs:
   publish:
@@ -30,11 +29,7 @@ jobs:
       - name: Run build
         run: npm run build
 
-      - name: Configure npm credentials
-        run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
-
       - name: Publish to npm with provenance
-        run: |
-          # Temporarily rename the prepublishOnly hook to prevent it from running
-          node -e "const pkg = require('./package.json'); delete pkg.scripts.prepublishOnly; require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, '\t') + '\n')"
-          npm publish --provenance
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
