@@ -21,7 +21,7 @@ export const getAllDescription: INodeProperties[] = [
 		name: 'returnAll',
 		type: 'boolean',
 		default: false,
-		description: 'Whether to return all results by paginating through all pages',
+		description: 'Whether to return all results or only up to a given limit',
 		displayOptions: {
 			show: {
 				resource: ['ingestJob'],
@@ -34,7 +34,7 @@ export const getAllDescription: INodeProperties[] = [
 		name: 'limit',
 		type: 'number',
 		default: 50,
-		description: 'Max number of results to return per page',
+		description: 'Max number of results to return',
 		typeOptions: {
 			minValue: 1,
 			maxValue: 100,
@@ -54,7 +54,7 @@ export const getAllDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Page Size (when Return All is enabled)',
+		displayName: 'Page Size (when Return All Is Enabled)',
 		name: 'pageSizeWhenReturnAll',
 		type: 'number',
 		default: 100,
