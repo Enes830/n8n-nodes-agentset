@@ -30,7 +30,8 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Configure npm credentials
+        run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm with provenance
         run: npm publish --provenance --no-scripts
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
