@@ -2,29 +2,6 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const getAllDescription: INodeProperties[] = [
 	{
-		displayName: 'Limit',
-		name: 'limit',
-		type: 'number',
-		default: 50,
-		description: 'Max number of results to return',
-		typeOptions: {
-			minValue: 1,
-			maxValue: 100,
-		},
-		displayOptions: {
-			show: {
-				resource: ['namespace'],
-				operation: ['getAll'],
-			},
-		},
-		routing: {
-			send: {
-				type: 'query',
-				property: 'perPage',
-			},
-		},
-	},
-	{
 		displayName: 'Options',
 		name: 'options',
 		type: 'collection',

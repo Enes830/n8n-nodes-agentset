@@ -17,11 +17,24 @@ export const getAllDescription: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Return All',
+		name: 'returnAll',
+		type: 'boolean',
+		default: false,
+		description: 'Whether to return all results by paginating through all pages',
+		displayOptions: {
+			show: {
+				resource: ['document'],
+				operation: ['getAll'],
+			},
+		},
+	},
+	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
 		default: 50,
-		description: 'Max number of results to return',
+		description: 'Max number of results to return per page',
 		typeOptions: {
 			minValue: 1,
 			maxValue: 100,
@@ -30,6 +43,31 @@ export const getAllDescription: INodeProperties[] = [
 			show: {
 				resource: ['document'],
 				operation: ['getAll'],
+				returnAll: [false],
+			},
+		},
+		routing: {
+			send: {
+				type: 'query',
+				property: 'perPage',
+			},
+		},
+	},
+	{
+		displayName: 'Page Size (when Return All is enabled)',
+		name: 'pageSizeWhenReturnAll',
+		type: 'number',
+		default: 100,
+		description: 'Number of results to fetch per page when using Return All',
+		typeOptions: {
+			minValue: 1,
+			maxValue: 100,
+		},
+		displayOptions: {
+			show: {
+				resource: ['document'],
+				operation: ['getAll'],
+				returnAll: [true],
 			},
 		},
 		routing: {
@@ -136,5 +174,43 @@ export const getAllDescription: INodeProperties[] = [
 				},
 			},
 		],
+	},
+	{
+		displayName: 'Cursor',
+		name: 'cursor',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['document'],
+				operation: ['getAll'],
+				returnAll: [true],
+			},
+		},
+		routing: {
+			send: {
+				type: 'query',
+				property: 'cursor',
+			},
+		},
+	},
+	{
+		displayName: 'Cursor Direction',
+		name: 'cursorDirection',
+		type: 'hidden',
+		default: 'forward',
+		displayOptions: {
+			show: {
+				resource: ['document'],
+				operation: ['getAll'],
+				returnAll: [true],
+			},
+		},
+		routing: {
+			send: {
+				type: 'query',
+				property: 'cursorDirection',
+			},
+		},
 	},
 ];
