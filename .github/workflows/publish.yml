@@ -32,4 +32,4 @@ jobs:
       - name: Publish to npm with automation token
         run: |
           npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTOMATION_TOKEN }}
-          npm publish
+          npm publish --provenance --ignore-scripts

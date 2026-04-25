@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-agentset",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "Agentset node",
 	"license": "MIT",
 	"homepage": "https://github.com/Enes830/n8n-nodes-agentset",
